@@ -1,0 +1,16 @@
+파이썬 폐쇄망에서 whl파일로 패키지 설치하기.
+
+1)pip가 설치되어 있지 않은 경우
+    *단일 whl파일 설치
+    python pip.whl파일경로/pip install 패키지명.whl --no-index --find-links=. --retries 0 --timeout 0
+
+    *복수의 whl를 for문을 이용하여 한번에 설치
+    for %f in (whl파일경로/*.whl) do python pip.whl파일경로/pip install "%f" --no-index --find-links=. --retries 0 --timeout 0
+
+2)pip가 설치되어 있는 경우
+    for %f in (whl파일경로/*.whl) do pip install "%f" --no-index --find-links=. --retries 0 --timeout 0
+
+#--no-index PyPl(온라인 저장소)에서 패키지를 찾지 않음
+#--find-links=. 현재 폴더의 다른 .whl 파일 의존성 패키지로 참조
+#--retries 0 실패 시 재시도 없이 넘어감
+#--timeout 0 연결 타임아웃을 0초로 설정. 즉시 실패 처리
