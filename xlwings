@@ -1,0 +1,12 @@
+pyinstaller로 exe 파일을 만들 때
+사내 보안망으로 pd.read_excel(file.xlsx)이 동작하지 않을 때.
+
+#import xlwings as xw
+#import pandas as pd
+
+df = xw.Book(file.xlsx)
+ws = df.sheets(sheetNo).uesd_range.options(pd.DataFrame).value
+df.close()
+
+file.xlsx파일이 열리고 sheetNo를 읽어온다.
+#used_range : 사용된 셀 범위 찾기
