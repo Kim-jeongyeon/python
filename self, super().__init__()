@@ -1,0 +1,63 @@
+#용어의 정리
+1. class : 설계도
+2. 인스턴스 Instance : a = A()  #a는 A()의 인스턴스
+3. 객체 Object : 파이썬의 모든 것은 객체이다. list, Instance ...
+4. 속성 Attibute : 클래스 내부의 변수 (객체가 저장하는 데이터)
+5. 메서드 Method : 클래스 내부의 함수 (def )
+6.매개변수 Parameter : 함수에 입력하는 값
+인스턴스에서 A()의 내용을 a에 저장하는것이 아닌 공유하는것(포인터) a.메서드() // a가 A()안에 있는 메소드()를 찾아 실행
+
+
+#self 이해하기
+class A:
+    def __init__(self):
+        print('A class')
+
+a = A()
+##print : A class
+
+----------------------------
+class B:
+    def __init__(self):
+        print('B class')
+
+    def test():
+      print('B test')
+
+b = B()
+##print : B class
+b.test()
+Error self가 없음.
+
+self가 있어야 b.def()를 불러올 수 있음.
+b가 class에 접근해서 def()를 실행함.
+하지만 self가 없으면 b안에는 def()의 포인터값?이 없어서 찾으러 갈 수 없음.
+
+
+class C(A):
+    def __init__(self):
+        super().__init__()
+        print('C class')
+c = C()
+##print : A class
+          C class
+
+super().__init__()은 상속받은 class의 모든 값을 사용하고 이후에 작성되는 메서드를 추가로 사용할 수 있게함.
+
+class C(A):
+    def __init__(self):
+        print('C class')
+c = C()
+##print : C class
+super().__init__() 안하면 덮어씌기되어서 class A 상속받지 못함.
+
+
+
+모듈{
+class 1,
+class 2,
+...,
+def func1,
+def func2,
+....
+변수1...}등이 포함된 .py 파일이다.
